@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+		body{
+			background-color: lightyellow;
+			color: navy;
+			font-size: 40 px;
+		}
+		#new{
+			padding:1%;
+			background-color: hotpink;
+			color: black;
+			border:1px solid green;
+			border-radius: 30px;
+		}
+		#button{
+			background-color: greenyellow;
+			color: black;
+			padding: 1%;
+			border-radius: 20px;
+
+		}
+		.listtype{
+			list-style: none;
+		}
+	</style>
+<script src="https://kit.fontawesome.com/5197a2f084.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<input placeholder="enter a todo" id="new"/>
+	<ul>
+		
+	</ul>
+	<button id="button" onclick="todo()">submit</button>
+	<script type="text/javascript">
+		function todo(){
+			let newTodo=document.getElementById("new").value,todoList=[]
+			if(newTodo===""){
+				alert("enter a Todo value")
+			}
+			else{
+				add(newTodo)
+			}
+			todoList.push(newTodo)
+			//console.log(todoList);
+			
+			document.getElementById("new").value=""
+
+		}
+		function add(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li");
+			li.innerHTML=`
+			<span>${newValue}</span>
+			<i class="fa-solid fa-rectangle-xmark"></i>
+			`
+			li.classList.add("listtype")
+			ul.appendChild(li)
+		}
+
+	</script>
+
+</body>
+</html>
